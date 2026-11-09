@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fortune Cookie Generator — crack open a little wisdom. Get a random fortune message with every click." />
+  <title>Fortune Cookie — Crack Open a Little Wisdom</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="stars" id="stars" aria-hidden="true"></div>
+
+  <main class="container">
+
+    <!-- Header -->
+    <header class="app-header">
+      <h1 class="app-title">Fortune Cookie</h1>
+      <p class="app-subtitle">Crack open a little wisdom.</p>
+    </header>
+
+    <!-- Cookie Scene -->
+    <section class="cookie-scene" aria-label="Fortune Cookie">
+
+      <!-- Fortune slip (hidden by default, shown after crack) -->
+      <div class="fortune-slip" id="fortuneSlip" aria-live="polite" aria-atomic="true">
+        <div class="fortune-slip-inner">
+          <span class="fortune-label">✦ Your Fortune ✦</span>
+          <p class="fortune-text" id="fortuneText"></p>
+        </div>
+      </div>
+
+      <!-- Cookie SVG -->
+      <div class="cookie-wrapper" id="cookieWrapper" role="img" aria-label="Fortune cookie illustration">
+        <svg class="cookie-svg" id="cookieSvg" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Left half -->
+          <g class="cookie-left" id="cookieLeft">
+            <ellipse cx="60" cy="90" rx="58" ry="38" fill="#D4A853" />
+            <ellipse cx="60" cy="90" rx="52" ry="32" fill="#E8BC6A" />
+            <ellipse cx="60" cy="90" rx="44" ry="24" fill="#F0CA7E" />
+            <!-- shine -->
+            <ellipse cx="45" cy="78" rx="12" ry="7" fill="rgba(255,255,255,0.18)" transform="rotate(-20 45 78)" />
+          </g>
+          <!-- Right half -->
+          <g class="cookie-right" id="cookieRight">
+            <ellipse cx="140" cy="90" rx="58" ry="38" fill="#D4A853" />
+            <ellipse cx="140" cy="90" rx="52" ry="32" fill="#E8BC6A" />
+            <ellipse cx="140" cy="90" rx="44" ry="24" fill="#F0CA7E" />
+            <!-- shine -->
+            <ellipse cx="155" cy="78" rx="12" ry="7" fill="rgba(255,255,255,0.18)" transform="rotate(20 155 78)" />
+          </g>
+          <!-- Center crack line (always visible) -->
+          <line class="crack-line" x1="100" y1="52" x2="100" y2="128" stroke="#B8882E" stroke-width="3" stroke-linecap="round" />
+          <!-- Crumble pieces (hidden, shown on crack) -->
+          <g class="crumble-pieces" id="crumblePieces" opacity="0">
+            <circle cx="90"  cy="130" r="4"  fill="#D4A853" />
+            <circle cx="110" cy="134" r="3"  fill="#E8BC6A" />
+            <circle cx="98"  cy="138" r="2.5" fill="#F0CA7E" />
+            <circle cx="82"  cy="136" r="3"  fill="#D4A853" />
+            <circle cx="118" cy="130" r="2"  fill="#E8BC6A" />
+          </g>
+        </svg>
+      </div>
+
+    </section>
+
+    <!-- Action Buttons -->
+    <div class="btn-group">
+      <button class="btn btn-primary" id="openBtn" aria-label="Open your fortune cookie">
+        <span class="btn-icon">🥠</span>
+        Open Your Fortune
+      </button>
+      <button class="btn btn-secondary" id="nextBtn" aria-label="Get another fortune" hidden>
+        <span class="btn-icon">🔮</span>
+        Get Another Fortune
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Made with ☕ &amp; a little magic</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
